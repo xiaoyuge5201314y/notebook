@@ -132,7 +132,7 @@ export default {
                   value: `<pre>git push 远程仓库http地址<br>git push -u 远程仓库地址别名 分支名称</pre>`,
                 },
                 {
-                  title: "",
+                  title: "添加远程仓库地址",
                   value: `<pre>git remote add 远程仓库地址别名 远程仓库地址<pre/>`,
                 },
                 {
