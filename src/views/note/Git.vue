@@ -179,9 +179,9 @@ export default {
               title: "生成公钥",
               text: [
                 {
-                  value: "ssh-keygen -t rsa -C GitHub账号",
+                  value: "ssh-keygen -t rsa '~/.ssh/id_rsa.pub' GitHub账号",
                   title:
-                    "cat+公钥路径，把出现的key复制在github上添加刚刚生成的公钥",
+                    "cat+公钥路径，把出现的key复制在github上添加刚刚生成的公钥 (注意：.pub后缀名)",
                 },{
                   value:`<img src=${img12}/>`
                 }
