@@ -129,7 +129,7 @@ export default {
                 {
                   title:
                     "将本地仓库同步到git远程仓库中（-u能记住地址 下次直接git push即可）",
-                  value: `<pre>git push 远程仓库http地址<br>git push -u 远程仓库地址别名</pre>`,
+                  value: `<pre>git push 远程仓库http地址<br>git push -u 远程仓库地址别名 分支名称</pre>`,
                 },
                 {
                   title: "",
