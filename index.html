@@ -1,0 +1,52 @@
+<!--
+ * @Description: 文件描述
+ * @version: 1.0
+ * @Author: 吴东宇
+ * @Date: 2022-08-25 17:01:33
+ * @LastEditors: 吴东宇
+ * @LastEditTime: 2022-08-25 17:01:37
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<title>XOR神经网络实现</title>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/synaptic/1.1.0/synaptic.js"></script>
+<script>
+const { Network, Layer } = window.synaptic;
+// 创建神经网络层
+var inputLayer = new Layer(2); // 输入层
+var hiddenLayer = new Layer(3); // 隐含层
+var outputLayer = new Layer(1); // 输出层
+
+// 搭建神经网络
+inputLayer.project(hiddenLayer);
+hiddenLayer.project(outputLayer);
+
+var myNetwork = new Network({
+ input: inputLayer,
+ hidden: [hiddenLayer],
+ output: outputLayer
+});
+
+// 神经网络训练
+var train = [[0,0], [0,1], [1,0], [1,1]]; // 训练数据
+var labels = [0, 1, 1, 0]; // 标签
+var learningRate = 0.1; // 学习率
+
+// 将训练数据10000次
+for (var i = 0; i < 10000; i++) {
+	for(var j = 0; j < train.length; j++) {
+		myNetwork.activate(train[j]);
+		myNetwork.propagate(learningRate, [labels[j]]);
+	}
+}
+
+// 测试输出
+for(var j = 0; j < train.length; j++) {
+	console.log(train[j] + "-> predict: " + myNetwork.activate(train[j]) + "; label："+labels[j]);
+}
+</script>
+</body>
+</html>
